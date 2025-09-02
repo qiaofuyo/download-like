@@ -1,0 +1,16 @@
+GET https://example.com/
+
+###
+
+POST https://www.kuaishou.com/graphql
+content-type: application/json
+Cookie: kpf=PC_WEB; clientid=3; did=web_792f6ae2bb5fa1cfa0794c6fce9559b5; didv=1731398147190; kwpsecproductname=PCLive; userId=130398874; AMP_07c61c6ea8=JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjIzNzMzMTJjYy04NWZlLTQ1MTgtOGI1Ny1kMzQzYWZmNzZjYzQlMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzQ5MTkxMzM2OTczJTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTc0OTE5MjE3NTg2NCUyQyUyMmxhc3RFdmVudElkJTIyJTNBOSU3RA==; kuaishou.server.webday7_st=ChprdWFpc2hvdS5zZXJ2ZXIud2ViZGF5Ny5zdBKwARuZYN3HR2ggKyMJ3q8oWdp6eM5NAp6aJsTz9cVUb1fbWqJLLGJ-ydhL6yGMA74ZzaHbdCZjtt68Xb1jrAJZW3eHihW5rch0h3LWytLLei9WSClksRFoMKFbeeYuY0Ssk3WzqjtYtUZpn6las2PXCChBbAK9apeP8_0ZgiyYpdf0Pco22Mw2nR5RscOypr35ne8NpCjXBNp0KbHlQtRB9TS24uaJvkSDKAa06UYfzcNoGhLICWwU3ZTCn08KoNWQa323DKAiIM_h3Sht5jUpNiJXfkoUhVcjngAkZnINOuDkUYYA4B-wKAUwAQ; kuaishou.server.webday7_ph=4276e44e2ef46ca7da982138b4a6011ab110; showFollowRedIcon=1; kwssectoken=rjB0WUi3Q+u9x7dqJVgShJ7DrNcNNeZtkBPD7zsbjCjSc3l5tCISce8iUjG2tIT/nInfuTZpDY3DvDur0hbesg==; kwscode=221e9b74fd391ece5b7009f34d24ccb1e330605d70e7fcab17150fd8c6f4f944; kwfv1=PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+Sw/ZFGfzY+eGlGf+f+e4SGfbYP0QfGnLFwBLU80mYGAcE8fbfG/rU+fPEG/cFGfpS8ecMP0LUGAPh80mjGn+DG9Ph8e8YG/pjPAQYGArFP/LM+n+S8ePMG0WU+/rl8fP=; kpn=KUAISHOU_VISION
+
+{
+  "operationName": "visionProfileLikePhotoList",
+    "variables": {
+      "pcursor": "",
+      "page": "profile"
+    },
+    "query": "fragment photoContent on PhotoEntity {\n  __typename\n  id\n  duration\n  caption\n  originCaption\n  likeCount\n  viewCount\n  commentCount\n  realLikeCount\n  coverUrl\n  photoUrl\n  photoH265Url\n  manifest\n  manifestH265\n  videoResource\n  coverUrls {\n    url\n    __typename\n  }\n  timestamp\n  expTag\n  animatedCoverUrl\n  distance\n  videoRatio\n  liked\n  stereoType\n  profileUserTopPhoto\n  musicBlocked\n}\n\nfragment recoPhotoFragment on recoPhotoEntity {\n  __typename\n  id\n  duration\n  caption\n  originCaption\n  likeCount\n  viewCount\n  commentCount\n  realLikeCount\n  coverUrl\n  photoUrl\n  photoH265Url\n  manifest\n  manifestH265\n  videoResource\n  coverUrls {\n    url\n    __typename\n  }\n  timestamp\n  expTag\n  animatedCoverUrl\n  distance\n  videoRatio\n  liked\n  stereoType\n  profileUserTopPhoto\n  musicBlocked\n}\n\nfragment feedContent on Feed {\n  type\n  author {\n    id\n    name\n    headerUrl\n    following\n    headerUrls {\n      url\n      __typename\n    }\n    __typename\n  }\n  photo {\n    ...photoContent\n    ...recoPhotoFragment\n    __typename\n  }\n  canAddComment\n  llsid\n  status\n  currentPcursor\n  tags {\n    type\n    name\n    __typename\n  }\n  __typename\n}\n\nquery visionProfileLikePhotoList($pcursor: String, $page: String, $webPageArea: String) {\n  visionProfileLikePhotoList(pcursor: $pcursor, page: $page, webPageArea: $webPageArea) {\n    result\n    llsid\n    webPageArea\n    feeds {\n      ...feedContent\n      __typename\n    }\n    hostName\n    pcursor\n    __typename\n  }\n}\n"
+}
