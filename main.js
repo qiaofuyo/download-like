@@ -63,7 +63,7 @@ function sleep(timeout = 1000) {
     }, timeout)
   })
 }
-async function timedCount(c = 4) {
+async function timedCount(c = 3) {
   while (c > 0) {
     console.log(c);
     c--
