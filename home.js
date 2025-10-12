@@ -1,5 +1,7 @@
-const filterList = require('./filterList.js')
+import filterList from './filterList.js';
 
-const url = 'https://live.kuaishou.com/profile/'
+const url = 'https://live.kuaishou.com/profile/';
 
-filterList.map((id, index) => console.log(index + ': ' + url + id))
+filterList.forEach((id, index) => {
+  console.log(`${index}: ${url}${id}`);
+});

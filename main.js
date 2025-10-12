@@ -1,11 +1,13 @@
-const fs = require('fs');
-const https = require('node:https');
-const zlib = require('zlib');
-const path = require('path');
-const {
-  userBlacklist,
-  workBlacklist
-} = require('./filterList.js');
+import fs from 'fs';
+import https from 'node:https';
+import zlib from 'zlib';
+import path from 'path';
+import { userBlacklist, workBlacklist } from './filterList.js';
+import 'dotenv/config';
+import { fileURLToPath } from 'url';
+// __dirname、__filename（在 ESM 中默认没有），需自行定义：
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // --- 1. 配置管理 ---
 let MODE = 'app';  // 模式：'app' 或 'pc'
@@ -306,13 +308,17 @@ async function cancelLike(userID, worksID, index, listLenght, cancel = 1) {
   }
 }
 
+// 从环境获取 cookie 字符串（不硬编码）
+async function obtainCookieString() {
+  if (process.env.COOKIE_PC) config.headers.pc.Cookie = process.env.COOKIE_PC.trim();
+  if (process.env.COOKIE_APP) config.headers.app.Cookie = process.env.COOKIE_APP.trim();
+}
+
 // --- 4. 主执行函数 ---
 async function main() {
-  MODE = process.argv.slice(2)[0] === 'n' || process.argv.slice(2)[0] === 'N' ? 'pc' : 'app'
-  const {
-    videoArr,
-    imageArr
-  } = await getLikedList();
+  MODE = process.argv.slice(2)[0] === 'n' || process.argv.slice(2)[0] === 'N' ? 'pc' : 'app';
+  await obtainCookieString();
+  const { videoArr, imageArr } = await getLikedList();
   await genBatchDownload('video', videoArr);
   await genBatchDownload('image', imageArr);
 }
