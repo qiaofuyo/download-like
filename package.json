@@ -3,19 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "main": "main.js",
   "scripts": {
     "debugger": "cls & node --inspect=9229 main.js",
-    "dev": "cls & node main.js"
+    "dev": "cls & node main.js",
+    "postinstall": "node scripts/createFile.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bagpipe": "^0.3.5",
-    "dotenv": "^17.2.3",
-    "fs": "^0.0.1-security",
-    "fs-extra": "^10.0.1",
-    "path": "^0.12.7",
-    "request": "^2.88.2"
+    "listr2": "^9.0.5"
   }
 }

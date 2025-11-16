@@ -1,0 +1,27 @@
+/**
+ * 过滤列表：用于排除不需要下载或处理的用户与作品 ID。
+ *
+ * 说明：主页ID 和 快手ID 十分混乱，搜索时两种 ID 都试试：
+ * - https://www.kuaishou.com/profile/${ID}
+ * - https://live.kuaishou.com/profile/${ID}
+ *
+ * @module lib/filterList
+ */
+
+/**
+ * 用户 ID / 主页 ID 黑名单（快手号或主页 ID 字符串数组）
+ * 示例：['licy', '3xj2ffgmc']
+ * @type {string[]}
+ */
+export const userBlacklist = [
+  // "example_user"
+];
+
+/**
+ * 作品 ID 黑名单（短视频 ID 列表）
+ * 示例 URL: https://www.kuaishou.com/short-video/3xijvk26i
+ * @type {string[]}
+ */
+export const workBlacklist = [
+  // "3xijvk26i"
+];

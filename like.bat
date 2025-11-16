@@ -1,7 +1,6 @@
 @echo off
-setlocal
-chcp 65001
-cls
+setlocal EnableDelayedExpansion
+chcp 65001 > $null
 
 rem --- 脚本功能：根据用户输入选择模式，若输入无效则直接退出。执行完毕后可重复使用 ---
 
@@ -45,7 +44,7 @@ rem 根据已验证的输入执行脚本。
 cls
 echo %GREEN%正在以 %app_mode% 模式启动...%RESET_COLOR%
 echo.
-node main.js %app_mode%
+node --env-file-if-exists=.env main.js %app_mode%
 echo.
 goto :loop_start
 
