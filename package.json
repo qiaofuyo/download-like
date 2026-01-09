@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "listr2": "^9.0.5"
+    "listr2": "^9.0.5",
+    "playwright": "^1.57.0"
   }
 }

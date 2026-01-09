@@ -31,6 +31,9 @@ Thumbs.db
 .env.local
 .env.*.local
 
+# 本地 cookie 存储
+cookies.json
+
 # 临时文件
 *.tmp
 *.temp
