@@ -133,7 +133,7 @@ async function processAll() {
     renderer: 'default',         // Listr2 的输出渲染器
     // renderer: 'verbose',      // 调试时可以打开看详细信息
     rendererOptions: {
-      detectWindowsAnsi: false,  // 关闭检测代码，不再生成 $null 文件
+      detectWindowsAnsi: false,  // 关闭环境检测
       collapse: false,           // 不折叠子任务输出
       collapseErrors: false,     // 错误不折叠，直接显示细节
       clearOutput: false         // 任务完成后不清除输出，便于查看历史输出

@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
-chcp 65001 > $null
+chcp 65001 > nul
 
 rem --- 脚本功能：根据用户输入选择模式，若输入无效则直接退出。执行完毕后可重复使用 ---
 
@@ -50,3 +50,5 @@ goto :loop_start
 
 :close_win
 endlocal
+rem 确保脚本在退出时只关闭当前脚本进程
+exit /b
